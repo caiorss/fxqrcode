@@ -119,6 +119,15 @@ class MainWindow extends JFrame {
   def setText(text: String) = tarea.setText(text)
   def clear() = tarea.setText("")
 
+
+  def makeQRcode() = {
+    val text = this.getText()
+    if (text != "")
+      this.generateQRcode(text)
+    else
+      this.generateQRcode("empty")
+  }
+
   def generateQRcode(text: String, margin: Int = 200) = {
     val w = pbox.getWidth()  - margin
     val h = pbox.getHeight() - margin
