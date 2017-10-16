@@ -1,0 +1,10 @@
+*.class
+*.bin
+*.zip
+*.jar
+*.exe
+*.o
+*.dll
+*.so
+*.tgz
+*.tar
