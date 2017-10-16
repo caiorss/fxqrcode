@@ -1,0 +1,10 @@
+#+TITLE: FxQrcode 
+#+DESCRIPTION: Desktop app to transfer data from computer through QRCode to Smartphone or portable device. 
+
+* FxQrcode 
+** Overview 
+
+FxQrcode is a cross-platform desktop application transfer data from
+computer to any portable device capble of reading QRcode such as
+smartphones or tablets.
+
