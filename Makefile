@@ -59,5 +59,8 @@ run: $(TARGET)
 repl:
 	$(JARGET) exec $(DEPS) -- scala 
 
+install: $(TARGET_PROG)
+	cp $(TARGET_PROG) ~/Desktop/fxqrcode.jar 
+
 clean:
-	rm -rf $(TARGET) $(TARGET_UBER)
+	rm -rf bin/*.jar 
