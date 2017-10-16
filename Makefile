@@ -9,9 +9,14 @@ TARGET_UBER := bin/fxqrcode-uber.jar
 TARGET_PROG := bin/fxqrcode-proguard.jar # Pro-guard build 
 SRC         := $(wildcard src/*.scala)
 
-# Building dependencies 
+# Run-time Dependencies 
 DEPS := com.google.zxing/core/2.2,com.google.zxing/javase/2.2
 
+# Building dependencies
+#
+# If jarget is already in the $PATH variable set 
+JARGET     := ~/bin/jarget 
+JARGET_URL := https://github.com/caiorss/jarget/raw/v2.1.0-beta-release/jarget
 
 # ================ R U L E S =================== #
 
@@ -32,22 +37,27 @@ guard: $(TARGET_PROG)
 force: $(SRC)
 	jarget exec $(DEPS) -- scalac $(SRC) -d $(TARGET)
 
-$(TARGET): $(SRC)
+$(TARGET): $(SRC) $(JARGET)
 	mkdir -p bin
-	jarget exec $(DEPS) -- fsc $(SRC) -d $(TARGET)
+	$(JARGET) exec $(DEPS) -- fsc $(SRC) -d $(TARGET)
 
-$(TARGET_UBER): $(TARGET)
-	jarget uber -scala -m $(TARGET) -o $(TARGET_UBER) -p com.google.zxing/core/2.2 com.google.zxing/javase/2.2
+$(TARGET_UBER): $(TARGET) $(JARGET)
+	$(JARGET) uber -scala -m $(TARGET) -o $(TARGET_UBER) -p com.google.zxing/core/2.2 com.google.zxing/javase/2.2
 
 $(TARGET_PROG): $(TARGET_UBER) config.pro 
 	java -jar proguard.jar @config.pro 
 
+# Download jarget building dependency moving it to ~/bin/ directory.
+$(JARGET):
+	curl -o ~/bin/jarget -L $(JARGET_URL)
+	chmod +x $(JARGET)
+
 run: $(TARGET)
-	jarget exec $(DEPS) -- scala $(TARGET)
+	$(JARGET) exec $(DEPS) -- scala $(TARGET)
 
 # Start Scala REPL with dependencies in CLASSPATH
 repl:
-	jarget exec $(DEPS) -- scala 
+	$(JARGET) exec $(DEPS) -- scala 
 
 clean:
 	rm -rf $(TARGET) $(TARGET_UBER)
