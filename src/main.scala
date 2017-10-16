@@ -59,13 +59,16 @@ object FunctionToListener{
 
 import FunctionToListener._
 
-class MainWindow extends JFrame {
+class MainWindow(
+  width: Int = 579,
+  height: Int = 535,
+  exitOnClose: Boolean = false
+
+) extends JFrame {
 
   val tarea    = new JTextArea()
   val btnClear = new JButton("Clear")
-
   val bgColor = java.awt.Color.WHITE 
-
   // PictureBox where the QRcode is shown
   val pbox = new JLabel()
 
@@ -98,17 +101,17 @@ class MainWindow extends JFrame {
 
     this.setContentPane(mainPanel)
     this.setTitle("Fxqrcode")
-    this.setSize(500, 500)
+    this.setSize(width, height)
+
 
     // ------ Set Event Handlers ------- //
 
-    onTextChange(tarea){() =>
-      val text = this.getText()
-      if (text != "")
-        this.generateQRcode(text)
-      else
-        pbox.setIcon(null) 
-    }
+    if (exitOnClose)
+      this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE)
+
+    onTextChange(tarea){ this.makeQRcode _ }
+
+    onResize(this){ this.makeQRcode _ }
 
     onAction(btnClear){() =>
       this.clear()
