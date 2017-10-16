@@ -1,4 +1,6 @@
-object QRCode { 
+package fxqrcode 
+
+object QRCode {
 
   import javax.imageio.ImageIO;
   import java.io._

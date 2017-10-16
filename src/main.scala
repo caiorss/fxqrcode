@@ -1,3 +1,4 @@
+package fxqrcode 
 
 /// Enable type-safe duck-typing or structural typing
 import scala.language.reflectiveCalls
