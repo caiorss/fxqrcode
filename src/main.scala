@@ -78,6 +78,7 @@ class MainWindow extends JFrame {
 
     val topPanel    = new JPanel()
     val buttonPanel = new JPanel()
+    buttonPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT))
     tarea.setRows(10)
     buttonPanel.add(btnClear)
     buttonPanel.setBackground(bgColor)
