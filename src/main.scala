@@ -92,7 +92,11 @@ class MainWindow extends JFrame {
     // ------ Set Event Handlers ------- //
 
     onTextChange(tarea){() =>
-      this.generateQRcode(this.getText())
+      val text = this.getText()
+      if (text != "")
+        this.generateQRcode(text)
+      else
+        pbox.setIcon(null) 
     }
 
     onAction(btnClear){() =>
