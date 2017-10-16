@@ -41,7 +41,17 @@ object FunctionToListener{
       def removeUpdate (arg: javax.swing.event.DocumentEvent) = handler()
     }
     act.getDocument().addDocumentListener(listener)
-  }  
+  }
+
+
+  def onResize(comp: java.awt.Component)(handler: => Unit) = {
+    val listener = new java.awt.event.ComponentAdapter(){
+      override def componentResized(evt: java.awt.event.ComponentEvent){
+        handler
+      }
+    }
+    comp.addComponentListener(listener)
+  }
 
 
 } //------- End of object FunctionToListener ------- //
