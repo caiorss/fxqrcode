@@ -141,7 +141,12 @@ class MainWindow(
 
 } // End of class 
 
+object Main{
 
-val gui = new MainWindow()
-gui.setVisible(true)
-//gui.generateQRcode("hello")
+  def main(args: Array[String]){
+    val gui = new MainWindow(exitOnClose = true)
+    gui.setVisible(true)
+    gui.makeQRcode()
+  }
+
+}
