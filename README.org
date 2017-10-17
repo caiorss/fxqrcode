@@ -1,5 +1,6 @@
 #+TITLE: FxQrcode 
-#+DESCRIPTION: Desktop app to transfer data from computer through QRCode to Smartphone or portable device. 
+#+DESCRIPTION: Cross-platform QR code generator app to transfer data, text and URLs from computer to smartphone or tablet. 
+#+STARTUP: content 
 
 * FxQrcode 
 ** Overview 
@@ -7,6 +8,10 @@
 FxQrcode is a small and lightweight java desktop application to
 transfer data through QRCode to any portable device with ability of
 reading QRcode such as smartphones or tablets.
+
+ - [[https://github.com/caiorss/fxqrcode][Project Repository]]
+
+ - [[https://caiorss.github.io/fxqrcode][Project Website]]
 
 It generates the QRCode from user input, for instance, if the user
 type or paste the URL below, the app will generate a QRCode from
@@ -16,6 +21,11 @@ to a smartphone or tablet.
  - Testing URL: https://www.ntu.edu.sg/home/ehchua/programming/java/J4a_GUI_2.html
 
 [[file:images/screenshot.png][file:images/screenshot.png]]
+
+
+** Download Binary Release 
+
+ - Download: [[https://raw.githubusercontent.com/caiorss/fxqrcode/gh-pages/fxqrcode.jar][fxqrcode.jar]]
 
 ** Building instructions 
 
@@ -86,6 +96,3 @@ Then to build run:
 It will build the file =bin/fxqrcode-proguard.jar= that can be run
 with =$ java -jar bin/fxqrcode-proguard.jar= or by double clicking at
 it. 
-
-
-
