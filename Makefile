@@ -56,5 +56,9 @@ repl:
 install: $(TARGET_PROG)
 	cp $(TARGET_PROG) ~/Desktop/fxqrcode.jar 
 
+release: $(TARGET_PROG)
+	cp $(TARGET_PROG) dist/fxqrcode.jar 
+	cd dist && git add fxqrcode.jar && git commit -m "Upload fxqrcode.jar" && git push 
+
 clean:
 	rm -rf bin/*.jar 
