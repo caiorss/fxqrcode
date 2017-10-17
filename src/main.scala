@@ -144,8 +144,13 @@ class MainWindow(
 
 object Main{
 
+  def getResourceImage(file: String, cls: Class[_]) = {
+    java.awt.Toolkit.getDefaultToolkit().getImage(cls.getResource(file))
+  }
+
   def main(args: Array[String]){
     val gui = new MainWindow(exitOnClose = true)
+    gui.setIconImage(getResourceImage("/resources/icon.png", getClass()))
     gui.setVisible(true)
     gui.makeQRcode()
   }
