@@ -40,7 +40,7 @@ $ curl -o ~/bin/jarget -L https://github.com/caiorss/jarget/raw/v2.1.0-beta-rele
 
 Then to build run:
 
- - =$ make force && make sh=
+ - =$ make force && make guard=
 
 #+BEGIN_SRC sh
   $ make force && make guard 
