@@ -16,7 +16,6 @@ DEPS := com.google.zxing/core/2.2,com.google.zxing/javase/2.2
 #
 # If jarget is already in the $PATH variable set 
 JARGET     := ~/bin/jarget 
-JARGET_URL := https://github.com/caiorss/jarget/raw/v2.1.0-beta-release/jarget
 
 # ================ R U L E S =================== #
 
@@ -46,11 +45,6 @@ $(TARGET_UBER): $(TARGET) $(JARGET)
 
 $(TARGET_PROG): $(TARGET_UBER) config.pro 
 	java -jar proguard.jar @config.pro 
-
-# Download jarget building dependency moving it to ~/bin/ directory.
-$(JARGET):
-	curl -o ~/bin/jarget -L $(JARGET_URL)
-	chmod +x $(JARGET)
 
 run: $(TARGET)
 	$(JARGET) exec $(DEPS) -- scala $(TARGET)
