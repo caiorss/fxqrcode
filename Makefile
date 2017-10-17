@@ -41,7 +41,7 @@ $(TARGET): $(SRC) $(JARGET)
 	$(JARGET) exec $(DEPS) -- fsc $(SRC) -d $(TARGET)
 
 $(TARGET_UBER): $(TARGET) $(JARGET)
-	$(JARGET) uber -scala -m $(TARGET) -o $(TARGET_UBER) -p com.google.zxing/core/2.2 com.google.zxing/javase/2.2
+	$(JARGET) uber -scala -m $(TARGET) -o $(TARGET_UBER) -r ./resources -p com.google.zxing/core/2.2 com.google.zxing/javase/2.2
 
 $(TARGET_PROG): $(TARGET_UBER) config.pro 
 	java -jar proguard.jar @config.pro 
