@@ -4,7 +4,87 @@
 * FxQrcode 
 ** Overview 
 
-FxQrcode is a cross-platform desktop application transfer data from
-computer to any portable device capble of reading QRcode such as
-smartphones or tablets.
+FxQrcode is a small and lightweight java desktop application to
+transfer data through QRCode to any portable device with ability of
+reading QRcode such as smartphones or tablets.
+
+It generates the QRCode from user input, for instance, if the user
+type or paste the URL below, the app will generate a QRCode from
+it. As the example shows, it is useful to transfer URL from a computer
+to a smartphone or tablet.
+
+ - Testing URL: http://docs.oracle.com/javase/1.5.0/docs/api/javax/swing/text/JTextComponent.html#setMargin%28java.awt.Insets%29
+
+
+** Building instructions 
+
+This application requires [[https://github.com/caiorss/jarget][jarget]] app and scala compiler as building
+dependencies. 
+
+The jarget app can be donwload with: 
+
+#+BEGIN_SRC sh 
+$ curl -o ~/bin/jarget -L https://github.com/caiorss/jarget/raw/v2.1.0-beta-release/jarget && chmod +x ~/bin/jarget 
+#+END_SRC
+
+Then to build run:
+
+ - =$ make force && make sh=
+
+#+BEGIN_SRC sh
+  $ make force && make guard 
+  jarget exec com.google.zxing/core/2.2,com.google.zxing/javase/2.2 -- scalac src/main.scala src/qrcode.scala -d bin/fxqrcode.jar
+  Downloading ---------------------
+  PackData(com.google.zxing,core,2.2)
+  ----------------------------------
+  Package path = PackData(com.google.zxing,core,2.2)
+  Downloading file /home/archbox/.jarget/cache/com/google/zxing/core/2.2/core-2.2.pom.
+  File /home/archbox/.jarget/cache/com/google/zxing/core/2.2/core-2.2.pom downloaded. Ok.
+  Downloading file /home/archbox/.jarget/cache/com/google/zxing/core/2.2/core-2.2.jar.
+  File /home/archbox/.jarget/cache/com/google/zxing/core/2.2/core-2.2.jar downloaded. Ok.
+  Download Successful
+
+  ... ... ... ... ... ... ... ...
+
+  ~/bin/jarget  uber -scala -m bin/fxqrcode.jar -o bin/fxqrcode-uber.jar -p com.google.zxing/core/2.2 com.google.zxing/javase/2.2
+  Built file:  bin/fxqrcode-uber.jar ok
+  Run it with: $ java -jar bin/fxqrcode-uber.jar
+  java -jar proguard.jar @config.pro 
+  ProGuard, version 5.3.3
+  Reading input...
+  Reading program jar [/home/archbox/Documents/projects/fxqrcode.scala/bin/fxqrcode-uber.jar]
+  Reading library jar [/home/archbox/opt/jdk1.8.0_144/jre/lib/rt.jar]
+  Initializing...
+  Note: scala.Enumeration accesses a field 'MODULE$' dynamically
+        Maybe this is program field 'fxqrcode.FunctionToListener$ { fxqrcode.FunctionToListener$ MODULE$; }'
+        Maybe this is program field 'fxqrcode.Main$ { fxqrcode.Main$ MODULE$; }'
+        Maybe this is program field 'fxqrcode.MainWindow$ { fxqrcode.MainWindow$ MODULE$; }'
+        Maybe this is program field 'fxqrcode.QRCode$ { fxqrcode.QRCode$ MODULE$; }'
+
+             ... ... ... ... ... ... ... 
+
+  Note: there were 1 accesses to class members by means of introspection.
+        You should consider explicitly keeping the mentioned class members
+        (using '-keep' or '-keepclassmembers').
+        (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclassmember)
+  Ignoring unused library classes...
+    Original number of library classes: 20180
+    Final number of library classes:    620
+  Shrinking...
+  Removing unused program classes and class elements...
+    Original number of program classes: 2784
+    Final number of program classes:    1272
+  Inlining subroutines...
+  Preverifying...
+  Writing output...
+  Preparing output jar [/home/archbox/Documents/projects/fxqrcode.scala/bin/fxqrcode-proguard.jar]
+    Copying resources from program jar [/home/archbox/Documents/projects/fxqrcode.scala/bin/fxqrcode-uber.jar]
+
+#+END_SRC
+
+It will build the file =bin/fxqrcode-proguard.jar= that can be run
+with =$ java -jar bin/fxqrcode-proguard.jar= or by double clicking at
+it. 
+
+
 
