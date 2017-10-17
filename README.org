@@ -13,8 +13,9 @@ type or paste the URL below, the app will generate a QRCode from
 it. As the example shows, it is useful to transfer URL from a computer
 to a smartphone or tablet.
 
- - Testing URL: http://docs.oracle.com/javase/1.5.0/docs/api/javax/swing/text/JTextComponent.html#setMargin%28java.awt.Insets%29
+ - Testing URL: https://www.ntu.edu.sg/home/ehchua/programming/java/J4a_GUI_2.html
 
+[[file:images/screenshot.png][file:images/screenshot.png]]
 
 ** Building instructions 
 
