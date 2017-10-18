@@ -51,7 +51,7 @@ run: $(TARGET)
 
 # Start Scala REPL with dependencies in CLASSPATH
 repl:
-	$(JARGET) exec $(DEPS) -- scala 
+	$(JARGET) exec $(DEPS) -- scala -I loader.scala  
 
 install: $(TARGET_PROG)
 	cp $(TARGET_PROG) ~/Desktop/fxqrcode.jar 
