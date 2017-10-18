@@ -22,7 +22,6 @@ to a smartphone or tablet.
 
 [[file:images/screenshot.png][file:images/screenshot.png]]
 
-
 ** Download Binary Release 
 
  - Download: [[https://raw.githubusercontent.com/caiorss/fxqrcode/gh-pages/fxqrcode.jar][fxqrcode.jar]]
@@ -96,3 +95,26 @@ Then to build run:
 It will build the file =bin/fxqrcode-proguard.jar= that can be run
 with =$ java -jar bin/fxqrcode-proguard.jar= or by double clicking at
 it. 
+** Starting REPL for development 
+
+Run: =$ make repl= from the project root directory to load the source
+files from src directory. 
+
+#+BEGIN_SRC scala 
+$ make repl
+~/bin/jarget  exec com.google.zxing/core/2.2,com.google.zxing/javase/2.2 -- scala -I loader.scala  
+Welcome to Scala 2.12.3 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_144).
+Type in expressions for evaluation. Or try :help.
+
+scala> g
+res1: fxqrcode.MainWindow = fxqrcode.MainWindow[frame0,0,0,579x535,invalid,layout=java.awt.BorderLayout,title=Fxqrcode,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,1,24,577x510,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+
+scala> g.getText()
+res2: String =
+"hello world
+
+"
+
+#+END_SRC
+
+[[file:images/repl.png][file:images/repl.png]]
