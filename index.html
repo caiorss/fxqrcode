@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>FxQrcode</title>
-<!-- 2017-10-16 Mon 23:44 -->
+<!-- 2017-10-18 Wed 16:22 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Caio Rodrigues Soares Silva" />
@@ -149,6 +149,7 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1-1">1.1. Overview</a></li>
 <li><a href="#sec-1-2">1.2. Download Binary Release</a></li>
 <li><a href="#sec-1-3">1.3. Building instructions</a></li>
+<li><a href="#sec-1-4">1.4. Starting REPL for development</a></li>
 </ul>
 </li>
 </ul>
@@ -194,7 +195,6 @@ to a smartphone or tablet.
 </div>
 </div>
 </div>
-
 
 <div id="outline-container-sec-1-2" class="outline-3">
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> Download Binary Release</h3>
@@ -292,11 +292,44 @@ it.
 </p>
 </div>
 </div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Starting REPL for development</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Run: <code>$ make repl</code> from the project root directory to load the source
+files from src directory. 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-scala">$ make repl
+~/bin/jarget  exec com.google.zxing/core/<span class="org-constant">2.2</span>,com.google.zxing/javase/<span class="org-constant">2.2</span> -- scala -<span class="org-constant">I</span> loader.scala  
+<span class="org-constant">Welcome</span> to <span class="org-constant">Scala</span> <span class="org-constant">2.12.3</span> <span class="org-rainbow-delimiters-depth-1">(</span><span class="org-constant">Java</span> <span class="org-constant">HotSpot</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-constant">TM</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-constant">64</span>-<span class="org-constant">Bit</span> <span class="org-constant">Server</span> <span class="org-constant">VM</span>, <span class="org-constant">Java</span> <span class="org-constant">1.8.0</span>_144<span class="org-rainbow-delimiters-depth-1">)</span>.
+<span class="org-constant">Type</span> in expressions <span class="org-keyword">for</span> evaluation. <span class="org-constant">Or</span> <span class="org-keyword">try</span> <span class="org-keyword">:</span><span class="org-type">help</span>.
+
+scala&gt; g
+<span class="org-function-name">res1</span><span class="org-keyword">:</span> <span class="org-type">fxqrcode</span>.<span class="org-constant">MainWindow</span> <span class="org-keyword">=</span> fxqrcode.<span class="org-constant">MainWindow</span><span class="org-rainbow-delimiters-depth-1">[</span>frame0,<span class="org-constant">0</span>,<span class="org-constant">0</span>,<span class="org-constant">579</span>x535,invalid,layout<span class="org-keyword">=</span>java.awt.<span class="org-constant">BorderLayout</span>,title<span class="org-keyword">=</span><span class="org-constant">Fxqrcode</span>,resizable,normal,defaultCloseOperation<span class="org-keyword">=</span><span class="org-constant">HIDE_ON_CLOSE</span>,rootPane<span class="org-keyword">=</span>javax.swing.<span class="org-constant">JRootPane</span><span class="org-rainbow-delimiters-depth-2">[</span>,<span class="org-constant">1</span>,<span class="org-constant">24</span>,<span class="org-constant">577</span>x510,invalid,layout<span class="org-keyword">=</span>javax.swing.<span class="org-constant">JRootPane</span>$RootLayout,alignmentX<span class="org-keyword">=</span><span class="org-constant">0.0</span>,alignmentY<span class="org-keyword">=</span><span class="org-constant">0.0</span>,border<span class="org-keyword">=</span>,flags<span class="org-keyword">=</span><span class="org-constant">16777673</span>,maximumSize<span class="org-keyword">=</span>,minimumSize<span class="org-keyword">=</span>,preferredSize<span class="org-keyword">=</span><span class="org-rainbow-delimiters-depth-2">]</span>,rootPaneCheckingEnabled<span class="org-keyword">=</span><span class="org-constant">true</span><span class="org-rainbow-delimiters-depth-1">]</span>
+
+scala&gt; g.getText<span class="org-rainbow-delimiters-depth-1">()</span>
+<span class="org-function-name">res2</span><span class="org-keyword">:</span> <span class="org-type">String</span> <span class="org-keyword">=</span>
+"hello world
+
+"
+</pre>
+</div>
+
+
+<div class="figure">
+<p><a href="images/repl.png"><img src="images/repl.png" alt="repl.png" /></a>
+</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Caio Rodrigues Soares Silva</p>
-<p class="date">Created: 2017-10-16 Mon 23:44</p>
+<p class="date">Created: 2017-10-18 Wed 16:22</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
